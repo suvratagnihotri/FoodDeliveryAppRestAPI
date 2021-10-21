@@ -1,11 +1,15 @@
 package com.food.delivery;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer")
 public class Customer {
+	public int id;
 	private String name;
 	private String email;
 	private int phoneNumber;
@@ -21,6 +25,17 @@ public class Customer {
 		this.password = password;
 	}
 	
+	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	public int getId() {
+	        return id;
+	    }
+	 
+	 public void setId(Integer id2) {
+			this.id = id2;
+			
+		}
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -33,15 +48,15 @@ public class Customer {
 		this.email = email;
 	}
 	
-	public String getMail() {
+	public String getEmail() {
 		return this.email;
 	}
 	
-	public void setNumber(int phoneNumber) {
+	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	
-	public int getNumber () {
+	public int getPhoneNumber () {
 		return this.phoneNumber;
 	}
 	
@@ -56,7 +71,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		StringBuffer str = new StringBuffer();
-		str.append("Customer name :"+ this.getName() + " Email is :" + this.getMail());
+		str.append("Customer name :"+ this.getName() + " Email is :" + this.getEmail());
 		return str.toString();
 	}
 }

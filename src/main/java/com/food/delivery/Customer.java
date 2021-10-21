@@ -12,16 +12,16 @@ public class Customer {
 	public int id;
 	private String name;
 	private String email;
-	private int phoneNumber;
+	private String phone;
 	private String password;
 	
 	public Customer() {}
 	
-	public Customer(String name, String email, int phoneNumber , String password) {
+	public Customer(String name, String email, String phone , String password) {
 		super();
 		this.name = name;
 		this.email = email;
-		this.phoneNumber = phoneNumber;
+		this.phone = phone;
 		this.password = password;
 	}
 	
@@ -52,12 +52,12 @@ public class Customer {
 		return this.email;
 	}
 	
-	public void setPhoneNumber(int phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setphone(String phone) {
+		this.phone = phone;
 	}
 	
-	public int getPhoneNumber () {
-		return this.phoneNumber;
+	public String getphone () {
+		return this.phone;
 	}
 	
 	public void setPassword(String password) {

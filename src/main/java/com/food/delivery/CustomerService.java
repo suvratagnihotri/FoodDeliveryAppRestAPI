@@ -23,4 +23,8 @@ public class CustomerService {
 	public Customer findByName(String name,String email) {
 		return repository.findById(1).get();
 	}
+	
+	public void saveCustomer(Customer customer) {
+		repository.save(customer);
+	}
 }

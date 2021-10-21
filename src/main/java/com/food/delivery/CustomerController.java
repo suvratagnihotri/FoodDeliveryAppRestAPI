@@ -22,9 +22,16 @@ public class CustomerController {
         return service.listAllCustomer();
     }
 	
+	@GetMapping("/find")
+	public Customer find(@RequestBody CustomerModel model) {
+		Customer customer = service.findByName(model.name, model.email);
+		return customer;
+	}
 	@PostMapping("/add")
 	public ResponseEntity<String> add(@RequestBody Customer customer) {
         service.saveCustomer(customer);
         return new ResponseEntity<>("Customer is added SuccessFully",HttpStatus.OK);
     }
+	
+	
 }

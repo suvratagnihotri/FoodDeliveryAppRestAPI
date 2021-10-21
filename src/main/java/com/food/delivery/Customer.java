@@ -64,7 +64,7 @@ public class Customer {
 		this.password = password;
 	}
 	
-	public String getPassword(String password) {
+	public String getPassword() {
 		return this.password;
 	}
 	

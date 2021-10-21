@@ -21,7 +21,15 @@ public class CustomerService {
 	}
 	
 	public Customer findByName(String name,String email) {
-		return repository.findById(1).get();
+		List <Customer> customers= repository.findAll();
+		for(int i =1; i<customers.size(); i++) {
+			if(customers.get(i).getName().equals(name)) {
+				if(customers.get(i).getEmail().equals(email)) {
+					return customers.get(i);
+				}
+			}
+		}
+		return null;
 	}
 	
 	public void saveCustomer(Customer customer) {

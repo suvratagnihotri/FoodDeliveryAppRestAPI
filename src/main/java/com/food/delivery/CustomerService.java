@@ -35,4 +35,17 @@ public class CustomerService {
 	public void saveCustomer(Customer customer) {
 		repository.save(customer);
 	}
+
+	public boolean deleteCustomer(CustomerModel customer) {
+		List <Customer> customers = repository.findAll();
+		for(int i=0; i<customers.size(); i++) {
+			if(customers.get(i).getName().equals(customer.name)) {
+				if(customers.get(i).getEmail().equals(customer.email)) {
+					repository.deleteById(customers.get(i).getId());
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

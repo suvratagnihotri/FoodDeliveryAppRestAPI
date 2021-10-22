@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,15 @@ public class CustomerController {
         service.saveCustomer(customer);
         return new ResponseEntity<>("Customer is added SuccessFully",HttpStatus.OK);
     }
+	
+	@DeleteMapping("/delete")
+	public ResponseEntity<String> delete(@RequestBody CustomerModel customer) {
+		boolean deleted = service.deleteCustomer(customer);
+		if(deleted) {
+			return new ResponseEntity<>("Customer is deleted SuccessFully",HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Customer not found",HttpStatus.OK);
+	}
 	
 	
 }

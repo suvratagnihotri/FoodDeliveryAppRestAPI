@@ -42,6 +42,4 @@ public class CustomerController {
 		}
 		return new ResponseEntity<>("Customer not found",HttpStatus.OK);
 	}
-	
-	
 }

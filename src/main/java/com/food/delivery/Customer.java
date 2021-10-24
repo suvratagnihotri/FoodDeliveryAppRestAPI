@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer")
+
+//Customer class
 public class Customer {
 	public int id;
 	private String name;

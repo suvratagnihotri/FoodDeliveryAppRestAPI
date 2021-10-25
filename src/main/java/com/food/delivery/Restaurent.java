@@ -1,6 +1,10 @@
 package com.food.delivery;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "restaurent")
 //Restaurent class.
 public class Restaurent {
 	private int id;
@@ -31,7 +35,14 @@ public class Restaurent {
 		this.location = location;
 	}
 	
-	public String location() {
+	public String getLocation() {
 		return this.location;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuffer str = new StringBuffer();
+		str.append("Hotel Name :" +this.getName() + " Location :" +this.getLocation());
+		return str.toString();
 	}
 }

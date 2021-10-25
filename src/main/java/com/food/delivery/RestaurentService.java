@@ -16,7 +16,20 @@ public class RestaurentService {
 		return repository.findAll();
 	}
 	
-	public void save(Restaurent restaurent) {
+	public void saveRestaurent(Restaurent restaurent) {
 		repository.save(restaurent);
+	}
+	
+	public boolean deleteRestaurent(Restaurent restaurent) {
+		List <Restaurent> restaurents = repository.findAll();
+		for(int i=0; i<restaurents.size(); i++) {
+			if(restaurents.get(i).getName().equals(restaurent.getName())) {
+				if(restaurents.get(i).getLocation().equals(restaurent.getLocation())) {
+					repository.deleteById(restaurents.get(i).getId());
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

@@ -42,7 +42,7 @@ public class Restaurent {
 	@Override
 	public String toString() {
 		StringBuffer str = new StringBuffer();
-		str.append("Hotel Name :" +this.getName() + " Location :" +this.getLocation());
+		str.append("Hotel Name :" +this.getName() + " Location :" + this.getLocation());
 		return str.toString();
 	}
 }

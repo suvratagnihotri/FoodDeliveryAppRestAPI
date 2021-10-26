@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "restaurent")
-//Restaurent class.
+//Restaurent class for storing the details of the restaurents.
 public class Restaurent {
 	private int id;
 	private String name;

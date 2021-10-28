@@ -1,5 +1,8 @@
 package com.food.delivery;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 //Food class which will be related to each to Restaurent. 
 //It contains name, price, imageUrl of the food items.
@@ -17,6 +20,9 @@ public class Food {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return this.id;
 	}

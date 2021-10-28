@@ -22,7 +22,7 @@ public class Food {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String name() {
+	public String getName() {
 		return this.name;
 	}
 	public void setPrice(int price) {
@@ -37,6 +37,13 @@ public class Food {
 	}
 	public String getImageUrl() {
 		return this.imageUrl;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuffer str = new StringBuffer();
+		str.append("Food name : "+this.getName() + " Food price : "+this.getPrice() );
+		return null;
 	}
 }
 

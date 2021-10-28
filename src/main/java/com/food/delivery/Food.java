@@ -1,7 +1,8 @@
 package com.food.delivery;
 
 
-//Food class which will be related to each to Restaurent. It contains name, price, imageUrl of the food items.
+//Food class which will be related to each to Restaurent. 
+//It contains name, price, imageUrl of the food items.
 public class Food {
 	private int id;
 	private String name;

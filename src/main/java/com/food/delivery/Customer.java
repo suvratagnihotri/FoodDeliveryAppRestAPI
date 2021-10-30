@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "customer")
 
-//Customer class
+//Customer class to be saved in the database.
 public class Customer {
 	public int id;
 	private String name;

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+//Main logic to fetch and save data in to the database.
 @Service
 @Transactional
 public class RestaurentService {

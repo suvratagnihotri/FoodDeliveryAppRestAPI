@@ -1,11 +1,15 @@
 package com.food.delivery;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 //Food class which will be related to each to Restaurent. 
 //It contains name, price, imageUrl of the food items.
+@Entity
+@Table(name = "food")
 public class Food {
 	private int id;
 	private String name;

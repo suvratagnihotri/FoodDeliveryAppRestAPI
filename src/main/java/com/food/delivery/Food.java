@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 //Food class which will be related to each to Restaurent. 
 //It contains name, price, imageUrl of the food items.
+//The table for food items has to be created dynamically.
 @Entity
 @Table(name = "food")
 public class Food {

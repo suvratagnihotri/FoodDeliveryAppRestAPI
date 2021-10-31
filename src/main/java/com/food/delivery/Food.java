@@ -14,12 +14,12 @@ public class Food {
 	private int id;
 	private String name;
 	private int price;
-	private String imageUrl;
-	public Food(int id, String name, int price, String imageUrl) {
+	private String url;
+	public Food(int id, String name, int price, String url) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
-		this.imageUrl = imageUrl;
+		this.url = url;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -43,11 +43,11 @@ public class Food {
 	public int getPrice() {
 		return this.price;
 	}
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setUrl(String url) {
+		this.url = url;
 	}
-	public String getImageUrl() {
-		return this.imageUrl;
+	public String getUrl() {
+		return this.url;
 	}
 	
 	@Override

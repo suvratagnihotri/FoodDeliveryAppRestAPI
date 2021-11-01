@@ -54,7 +54,7 @@ public class Food {
 	@Override
 	public String toString() {
 		StringBuffer str = new StringBuffer();
-		str.append("Food name : "+this.getName() + " Food price : "+this.getPrice() );
+		str.append("Food name : "+this.getName() + " Food price : "+this.getPrice() + "Item Image :"+this.getUrl() );
 		return null;
 	}
 }

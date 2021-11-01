@@ -20,6 +20,7 @@ public class RestaurentService {
 	
 	public void saveRestaurent(Restaurent restaurent) {
 		repository.save(restaurent);
+		System.out.print(restaurent.getName());
 	}
 	
 	public boolean deleteRestaurent(Restaurent restaurent) {

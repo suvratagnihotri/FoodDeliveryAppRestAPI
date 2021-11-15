@@ -26,6 +26,13 @@ public class RestaurentService {
 		System.out.print(restaurent.getName());
 	}
 	
+	public boolean tableExists(String tableName) {
+		if(repository.checkForTable(tableName)!=null) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean deleteRestaurent(Restaurent restaurent) {
 		List <Restaurent> restaurents = repository.findAll();
 		for(int i=0; i<restaurents.size(); i++) {

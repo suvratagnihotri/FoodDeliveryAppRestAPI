@@ -15,12 +15,16 @@ public interface RestaurentRepository extends JpaRepository<Restaurent, Integer>
 	public void insertRestaurentMenuTable(@Param("menuTableName") String menuTableName);
 	
 	@Modifying
-	@Query(value = "CREATE TABLE CONCAT('%',:menuTableName,'%')(id int NOT NULL AUTO_INCREMENT PRIMARY KEY,name varchar(255)),price int;",nativeQuery=true)
+	@Query(value = "CREATE TABLE CONCAT('%',:menuTableName,'%') (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,name varchar(255),price int,url varchar(255));",nativeQuery=true)
 	public void createRestaurentMenuTable(@Param("menuTableName") String menuTableName);
 	
 	
-	@Query(value = "SHOW TABLES LIKE ':menuTableName'",nativeQuery=true)
+	@Query(value = "SHOW TABLES LIKE ':menuTableName';",nativeQuery=true)
 	public String checkForTable(@Param("menuTableName") String menuTableName);
+	
+	@Modifying
+	@Query(value = "INSERT INTO CONCAT('%',:menuTableName,'%') (name,price,url) VALUES (:name, :price,:url)",nativeQuery=true)
+	public void addItem(@Param("menuTableName") String menuTableName,String name, int price,String url);
 //	
 //	@Query(value = "",nativeQuery=true)
 

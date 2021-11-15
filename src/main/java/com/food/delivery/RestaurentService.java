@@ -30,10 +30,12 @@ public class RestaurentService {
 		if(repository.checkForTable(tableName)!=null) {
 			return true;
 		}
-		
 		return false;
 	}
 	
+	public void addItem(String tableName, Food food) {
+		repository.addItem(tableName, food.getName(), food.getPrice(),food.getUrl());
+	}
 	public boolean deleteRestaurent(Restaurent restaurent) {
 		List <Restaurent> restaurents = repository.findAll();
 		for(int i=0; i<restaurents.size(); i++) {

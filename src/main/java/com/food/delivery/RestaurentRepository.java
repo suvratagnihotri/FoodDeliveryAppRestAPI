@@ -7,13 +7,9 @@ package com.food.delivery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 
 public interface RestaurentRepository extends JpaRepository<Restaurent, Integer>{
-	@Modifying
-	@Procedure
-	int New_Restaurant_Table(String model);
 	
 	@Modifying
 	@Query(value = "INSERT INTO restaurent_menus_table (name) VALUES (:menuTableName);",nativeQuery=true)

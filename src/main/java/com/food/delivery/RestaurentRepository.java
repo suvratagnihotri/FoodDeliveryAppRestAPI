@@ -30,9 +30,7 @@ public interface RestaurentRepository extends JpaRepository<Restaurent, Integer>
 	public String checkForTable(@Param("menuTableName") String menuTableName);
 	
 	@Modifying
-	@Query(value = "INSERT INTO CONCAT('%',:menuTableName,'%') (name,price,url) VALUES (:name, :price,:url)",nativeQuery=true)
-	public void addItem(@Param("menuTableName") String menuTableName,String name, int price,String url);
-//	
-//	@Query(value = "",nativeQuery=true)
+	@Query(value = "INSERT INTO restaurent_menus_table (restaurent_id,name,price) VALUES (?1,?2,?3)",nativeQuery=true)
+	public void saveItem(int restaurent_id, String name, int price);
 
 }

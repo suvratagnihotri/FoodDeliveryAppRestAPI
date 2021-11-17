@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ch.qos.logback.classic.Logger;
+
 
 //Controller class for the Restaurent , to fetch restaurents from the databse using API.
 @RestController
@@ -32,13 +34,16 @@ public class RestaurentController {
         return new ResponseEntity<>("Restaurent is added SuccessFully",HttpStatus.OK);
     }
 	
-	@PostMapping("/add/{restaurentMenuTable}")
-	public ResponseEntity<String> addMenuItem(@PathVariable("restaurentMenuTable") String restaurentMenuTable,@RequestBody Food food){
-		if(service.checkForTable(restaurentMenuTable)) {
-			service.addItem(restaurentMenuTable, food);
+	@PostMapping("/add/food")
+	public ResponseEntity<String> addMenuItem(@RequestBody Food food){
+		try {
+			service.addItem(food);
 			return new ResponseEntity<>("Menu Item is added SuccessFully",HttpStatus.OK);
 		}
-		return new ResponseEntity<>("Menu Item can not be added",HttpStatus.OK);
+		catch(Exception ex) {
+			System.out.println(ex.getMessage().toString());
+			return new ResponseEntity<>("Menu Item can not be added",HttpStatus.OK);
+		}
 	}
 	
 	@DeleteMapping("/delete")

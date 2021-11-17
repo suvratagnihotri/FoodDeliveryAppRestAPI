@@ -31,7 +31,7 @@ public class RestaurentService {
 		String tableName = (restaurent.getName()+restaurent.getId()).replaceAll("\\s+","").toLowerCase().toString(); 
 		repository.insertRestaurentMenuTable(tableName);
 //		Query query = createQuery(tableName);
-		repository.createRestaurentMenuTable("newDelhi40%");
+//		repository.createRestaurentMenuTable("newDelhi40%");
 		System.out.print(restaurent.getName());
 	}
 	
@@ -42,9 +42,9 @@ public class RestaurentService {
 		return false;
 	}
 	
-	public void addItem(String tableName, Food food) {
-		repository.addItem(tableName, food.getName(), food.getPrice(),food.getUrl());
-	}
+//	public void addItem(String tableName, Food food) {
+//		repository.addItem(tableName, food.getName(), food.getPrice());
+//	}
 	public boolean deleteRestaurent(Restaurent restaurent) {
 		List <Restaurent> restaurents = repository.findAll();
 		for(int i=0; i<restaurents.size(); i++) {

@@ -10,17 +10,17 @@ import javax.persistence.Table;
 //It contains name, price, imageUrl of the food items.
 //The table for food items has to be created dynamically.
 @Entity
-//@Table(name = DatabaseTables.menuTableName)
+@Table(name = "restaurent_menus_table")
 public class Food {
 	private int id;
+	private int restaurent_id;
 	private String name;
 	private int price;
-	private String url;
-	public Food(int id, String name, int price, String url) {
+	public Food(int id,int restaurent_id, String name, int price) {
 		this.id = id;
+		this.restaurent_id = restaurent_id;
 		this.name = name;
 		this.price = price;
-		this.url = url;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -44,17 +44,17 @@ public class Food {
 	public int getPrice() {
 		return this.price;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+	public void setRestaurentId(int restaurent_id) {
+		this.restaurent_id= restaurent_id;
 	}
-	public String getUrl() {
-		return this.url;
+	public int getRestautrentId() {
+		return this.restaurent_id;
 	}
 	
 	@Override
 	public String toString() {
 		StringBuffer str = new StringBuffer();
-		str.append("Food name : "+this.getName() + " Food price : "+this.getPrice() + "Item Image :"+this.getUrl() );
+		str.append("Food name : "+this.getName() + " Food price : "+this.getPrice() + "Restaurent Id :"+this.getRestautrentId() );
 		return null;
 	}
 }

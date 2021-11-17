@@ -16,6 +16,7 @@ public class Food {
 	private int restaurent_id;
 	private String name;
 	private int price;
+	public Food() {}
 	public Food(int id,int restaurent_id, String name, int price) {
 		this.id = id;
 		this.restaurent_id = restaurent_id;
@@ -44,8 +45,9 @@ public class Food {
 	public int getPrice() {
 		return this.price;
 	}
-	public void setRestaurentId(int restaurent_id) {
-		this.restaurent_id= restaurent_id;
+	
+	public void setrestautrentId(int restaurent_id) {
+		this.restaurent_id = restaurent_id;
 	}
 	public int getRestautrentId() {
 		return this.restaurent_id;

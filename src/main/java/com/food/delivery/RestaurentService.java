@@ -2,9 +2,6 @@ package com.food.delivery;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,11 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class RestaurentService {
 	@Autowired
 	private RestaurentRepository repository;
-	   EntityManager entityManager;
-//	   @Autowired
-//	  Query createQuery(String tableName) {
-//	       return entityManager.createNativeQuery("CREATE TABLE "+tableName+ " (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,name varchar(255),price int,url varchar(255))");
-//	   }
 	
 	public List<Restaurent> listAllRestaurent(){
 		return repository.findAll();
@@ -28,21 +20,21 @@ public class RestaurentService {
 	
 	public void saveRestaurent(Restaurent restaurent) {
 		repository.save(restaurent);
-		String tableName = (restaurent.getName()+restaurent.getId()).replaceAll("\\s+","").toLowerCase().toString(); 
-		repository.insertRestaurentMenuTable(tableName);
+//		String tableName = (restaurent.getName()+restaurent.getId()).replaceAll("\\s+","").toLowerCase().toString(); 
+//		repository.insertRestaurentMenuTable(tableName);
 		System.out.print(restaurent.getName());
 	}
 	
-	public boolean checkForTable(String tableName) {
-		if(repository.checkForTable(tableName)!=null) {
-			return true;
-		}
-		return false;
-	}
+//	public boolean checkForTable(String tableName) {
+//		if(repository.checkForTable(tableName)!=null) {
+//			return true;
+//		}
+//		return false;
+//	}
 	
-	public void addItem(Food food) {
-		repository.saveItem(food.getRestautrentId(),food.getName(),food.getPrice());
-	}
+//	public void addItem(Food food) {
+//		repository.saveItem(food.getRestautrentId(),food.getName(),food.getPrice());
+//	}
 	
 	public boolean deleteRestaurent(Restaurent restaurent) {
 		List <Restaurent> restaurents = repository.findAll();

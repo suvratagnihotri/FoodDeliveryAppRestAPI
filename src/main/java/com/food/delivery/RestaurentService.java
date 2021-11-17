@@ -31,7 +31,7 @@ public class RestaurentService {
 		String tableName = (restaurent.getName()+restaurent.getId()).replaceAll("\\s+","").toLowerCase().toString(); 
 		repository.insertRestaurentMenuTable(tableName);
 //		Query query = createQuery(tableName);
-//		repository.createRestaurentMenuTable(tableName);
+		repository.createRestaurentMenuTable("newDelhi40%");
 		System.out.print(restaurent.getName());
 	}
 	

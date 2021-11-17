@@ -7,10 +7,13 @@ package com.food.delivery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 
 public interface RestaurentRepository extends JpaRepository<Restaurent, Integer>{
-	
+	@Modifying
+	@Procedure
+	int New_Restaurant_Table(String model);
 	
 	@Modifying
 	@Query(value = "INSERT INTO restaurent_menus_table (name) VALUES (:menuTableName);",nativeQuery=true)
@@ -19,7 +22,7 @@ public interface RestaurentRepository extends JpaRepository<Restaurent, Integer>
 //	"CREATE TABLE "+menuTableName+ " (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,name varchar(255),price int,url varchar(255))"
 	String menuTableName = ":menuTableName"; 
 	@Modifying
-	@Query(value = "CREATE TABLE "+menuTableName+ " (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,name varchar(255),price int,url varchar(255))",nativeQuery=true)
+	@Query(value = "CREATE TABLE SELECT name from restaurent_menus_table WHERE ID=7 (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,name varchar(255),price int,url varchar(255))",nativeQuery=true)
 	public void createRestaurentMenuTable(@Param("menuTableName") String tableName);
 	
 	
